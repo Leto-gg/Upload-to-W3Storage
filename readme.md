@@ -2,7 +2,6 @@
 
 This repo is dedicated to a Cloudflare workers configuration that acts as a IPFS Gateway that takes an object(10mb max filesize) from a user and uploads it to our Web3.Storage configuration(Users are currently tied to our Web3.Storage account) This is so that user can call the objects they upload from Web3.Storages superfast gateway. 
 
-
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
@@ -85,10 +84,9 @@ The "Verified Web3.Storage Upload" API includes the following methods:
 ```bash
 
 uploadFile(filePath): Uploads a file to Web3.Storage and returns its Content Identifier (CID).
-getFile(cid, outputPath): Retrieves a file from Web3.Storage using its CID and saves it to the specified output path.
 
-## Contributing
-We welcome contributions from the community. If you'd like to contribute to the "Verified Web3.Storage Upload" repository, please follow our contribution guidelines.
+
+getFile(cid, outputPath): Retrieves a file from Web3.Storage using its CID and saves it to the specified output path.
 
 ```
 ## Contributing
