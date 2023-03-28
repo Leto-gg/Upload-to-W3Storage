@@ -23,4 +23,3 @@ async function handleRequest(request) {
   })
 }
 
-
