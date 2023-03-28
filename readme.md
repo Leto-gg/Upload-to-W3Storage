@@ -91,7 +91,3 @@ We welcome contributions from the community. If you'd like to contribute to the 
 ```
 ## License
 This project is licensed under the MIT License.
-
-rust
-
-Copy and paste the content above into a Markdown file (e.g., `README.md`) to
