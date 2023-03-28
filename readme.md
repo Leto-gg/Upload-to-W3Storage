@@ -40,6 +40,7 @@ Install the required dependencies:
 npm install
 Create a .env file in the root directory and add your Web3.Storage API key:
 ```
+
 ```bash
 WEB3_STORAGE_API_KEY=<your_api_key>
 ```
@@ -90,7 +91,7 @@ getFile(cid, outputPath): Retrieves a file from Web3.Storage using its CID and s
 
 ```
 ## Contributing
-We welcome contributions from the community. If you'd like to contribute to the "Verified Web3.Storage Upload" repository, please follow our contribution guidelines.
+We welcome contributions from the community. If you'd like to contribute to the "Verified Web3.Storage Upload" repository, please follow our contribution guidelines. Building an API used by developers is the most exciting and difficult thing someone can do
 
 ## License
 This project is licensed under the MIT License.
