@@ -86,7 +86,8 @@ The "Verified Web3.Storage Upload" API includes the following methods:
 
 uploadFile(filePath): Uploads a file to Web3.Storage and returns its Content Identifier (CID).
 getFile(cid, outputPath): Retrieves a file from Web3.Storage using its CID and saves it to the specified output path.
-Contributing
+
+## Contributing
 We welcome contributions from the community. If you'd like to contribute to the "Verified Web3.Storage Upload" repository, please follow our contribution guidelines.
 ```
 ## License
