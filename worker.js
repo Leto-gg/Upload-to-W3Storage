@@ -18,6 +18,8 @@ const upload = multer({ dest: 'uploads/' });
 app.use(express.json());
 
 // API endpoint to upload a file
+
+
 app.post('/upload', upload.single('file'), async (req, res) => {
   try {
     const { path: filePath, originalname } = req.file;
@@ -26,8 +28,10 @@ app.post('/upload', upload.single('file'), async (req, res) => {
     });
     const cid = await storage.put([file]);
 
+
     // Remove the temporary file
     await unlinkAsync(filePath);
+
 
     res.json({ success: true, cid });
   } catch (error) {
