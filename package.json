@@ -1,0 +1,22 @@
+{
+  "name": "leto-web3s-verified-upload",
+  "version": "0.3.2",
+  "description": "A simple way to upload data to web3.storage built for Anon Analytics",
+  "main": "worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noryev/Leto-Web3S-Verified-Upload.git"
+  },
+  "author": "noryev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noryev/Leto-Web3S-Verified-Upload/issues"
+  },
+  "homepage": "https://github.com/noryev/Leto-Web3S-Verified-Upload#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

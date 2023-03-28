@@ -1,24 +1,66 @@
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
-})
+// Authentication
 
-async function handleRequest(request) {
-  const { searchParams } = new URL(request.url)
-  const cid = searchParams.get('cid')
+// Send Request
 
-  if (!cid) {
-    return new Response('Missing CID parameter', { status: 400 })
+// Everything Else
+
+const express = require('express');
+const { Web3Storage } = require('web3.storage');
+const multer = require('multer');
+const fs = require('fs');
+const path = require('path');
+const { promisify } = require('util');
+const unlinkAsync = promisify(fs.unlink);
+require('dotenv').config();
+
+const app = express();
+const port = process.env.PORT || 3000;
+const apiKey = process.env.WEB3_STORAGE_API_KEY;
+
+const storage = new Web3Storage({ token: apiKey });
+const upload = multer({ dest: 'uploads/' });
+
+app.use(express.json());
+
+// API endpoint to upload a file
+app.post('/upload', upload.single('file'), async (req, res) => {
+  try {
+    const { path: filePath, originalname } = req.file;
+    const file = await Web3Storage.fromFile(fs.createReadStream(filePath), {
+      path: originalname,
+    });
+    const cid = await storage.put([file]);
+
+    // Remove the temporary file
+    await unlinkAsync(filePath);
+
+    res.json({ success: true, cid });
+  } catch (error) {
+    console.error('Error uploading file:', error);
+    res.status(500).json({ success: false, message: 'Error uploading file' });
   }
+});
 
-  // Query Web3.Storage for the CID data
-  const res = await fetch(`https://dweb.link/ipfs/${cid}`)
-  const data = await res.text()
+// API endpoint to retrieve a file
+app.get('/download/:cid', async (req, res) => {
+  try {
+    const { cid } = req.params;
+    const files = await storage.get(cid);
 
-  // Create a new response with the CID data
-  return new Response(data, {
-    headers: {
-      'Content-Type': 'text/plain',
-      'Access-Control-Allow-Origin': '*'
+    if (files) {
+      const [file] = files;
+      res.setHeader('Content-Disposition', `attachment; filename=${file.name}`);
+      res.setHeader('Content-Type', file.type);
+      res.send(file.content);
+    } else {
+      res.status(404).json({ success: false, message: 'File not found' });
     }
-  })
-}
+  } catch (error) {
+    console.error('Error retrieving file:', error);
+    res.status(500).json({ success: false, message: 'Error retrieving file' });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
