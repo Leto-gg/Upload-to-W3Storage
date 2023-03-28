@@ -1,8 +1,3 @@
-// Authentication
-
-// Send Request
-
-// Everything Else
 
 const express = require('express');
 const { Web3Storage } = require('web3.storage');
@@ -12,7 +7,7 @@ const path = require('path');
 const { promisify } = require('util');
 const unlinkAsync = promisify(fs.unlink);
 require('dotenv').config();
-
+// Hazardous Past... 
 const app = express();
 const port = process.env.PORT || 3000;
 const apiKey = process.env.WEB3_STORAGE_API_KEY;
