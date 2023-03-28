@@ -89,10 +89,10 @@ getFile(cid, outputPath): Retrieves a file from Web3.Storage using its CID and s
 
 ## Contributing
 We welcome contributions from the community. If you'd like to contribute to the "Verified Web3.Storage Upload" repository, please follow our contribution guidelines.
+
 ```
+## Contributing
+We welcome contributions from the community. If you'd like to contribute to the "Verified Web3.Storage Upload" repository, please follow our contribution guidelines.
+
 ## License
 This project is licensed under the MIT License.
-
-rust
-
-Copy and paste the content above into a Markdown file (e.g., `README.md`) to
