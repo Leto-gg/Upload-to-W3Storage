@@ -55,11 +55,9 @@ WEB3_STORAGE_API_KEY=<your_api_key>
 ## Usage
 With the "Verified Web3.Storage Upload" repository installed, you can use the API to upload and manage your data on Web3.Storage.
 
-Uploading a File
+## Uploading a File
 To upload a file to Web3.Storage, use the uploadFile function:
-
-javascript
-Copy code
+```bash
 const Web3Storage = require('./src/web3storage');
 
 (async () => {
@@ -69,11 +67,14 @@ const Web3Storage = require('./src/web3storage');
 
   console.log(`File uploaded successfully with CID: ${cid}`);
 })();
-Retrieving a File
+
+```
+
+## Retrieving a File
 To retrieve a file from Web3.Storage, use the getFile function:
 
-javascript
-Copy code
+```bash
+
 const Web3Storage = require('./src/web3storage');
 
 (async () => {
@@ -84,15 +85,18 @@ const Web3Storage = require('./src/web3storage');
 
   console.log(`File retrieved successfully and saved at: ${outputPath}`);
 })();
-API Reference
+
+```
+## API Reference
 The "Verified Web3.Storage Upload" API includes the following methods:
+```bash
 
 uploadFile(filePath): Uploads a file to Web3.Storage and returns its Content Identifier (CID).
 getFile(cid, outputPath): Retrieves a file from Web3.Storage using its CID and saves it to the specified output path.
 Contributing
 We welcome contributions from the community. If you'd like to contribute to the "Verified Web3.Storage Upload" repository, please follow our contribution guidelines.
-
-License
+```
+## License
 This project is licensed under the MIT License.
 
 rust
