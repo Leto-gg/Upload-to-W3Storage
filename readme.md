@@ -39,18 +39,18 @@ git clone https://github.com/username/verified-web3storage-upload.git
 
 ```bash
 Change to the repository directory:
-
-
+```
+```bash
 cd verified-web3storage-upload
 Install the required dependencies:
-bash
-
+```
+```bash
 npm install
 Create a .env file in the root directory and add your Web3.Storage API key:
-ini
-
+```
+```bash
 WEB3_STORAGE_API_KEY=<your_api_key>
-Usage
+```
 With the "Verified Web3.Storage Upload" repository installed, you can use the API to upload and manage your data on Web3.Storage.
 
 Uploading a File
