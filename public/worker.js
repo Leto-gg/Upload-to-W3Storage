@@ -18,6 +18,8 @@ const upload = multer({ dest: 'uploads/' });
 app.use(express.json());
 
 // API endpoint to upload a file
+
+
 app.post('/upload', upload.single('file'), async (req, res) => {
   try {
     const { path: filePath, originalname } = req.file;
@@ -26,8 +28,14 @@ app.post('/upload', upload.single('file'), async (req, res) => {
     });
     const cid = await storage.put([file]);
 
+
     // Remove the temporary file
+
+
+    // Get rid of the ls information exchange key - 
+
     await unlinkAsync(filePath);
+
 
     res.json({ success: true, cid });
   } catch (error) {
@@ -47,6 +55,8 @@ app.get('/download/:cid', async (req, res) => {
       res.setHeader('Content-Disposition', `attachment; filename=${file.name}`);
       res.setHeader('Content-Type', file.type);
       res.send(file.content);
+
+
     } else {
       res.status(404).json({ success: false, message: 'File not found' });
     }
